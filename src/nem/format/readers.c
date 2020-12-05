@@ -153,6 +153,18 @@ int snprintf_hex2ascii(char *dst, uint32_t maxLen, const uint8_t *src, uint32_t 
     return 2*dataLength;
 }
 
+uint8_t read_uint8(const uint8_t *src) {
+    return (uint8_t) *((uint8_t *)src);
+}
+
+uint16_t read_uint16(const uint8_t *src) {
+    return (uint16_t) *((uint16_t *)src);
+}
+
+uint32_t read_uint32(const uint8_t *src) {
+    return (src[3] << 24) | (src[2] << 16) | (src[1] << 8) | src[0];
+}
+
 uint64_t read_uint64(const uint8_t *src) {
     uint64_t value ;
     value = src[7] ;
@@ -164,16 +176,4 @@ uint64_t read_uint64(const uint8_t *src) {
     value = (value << 8 ) + src[1] ;
     value = (value << 8 ) + src[0] ;
     return value ;
-}
-
-uint8_t read_uint8(const uint8_t *src) {
-    return (uint8_t) *((uint8_t *)src);
-}
-
-uint16_t read_uint16(const uint8_t *src) {
-    return (uint16_t) *((uint16_t *)src);
-}
-
-uint32_t read_uint32(const uint8_t *src) {
-    return (src[3] << 24) | (src[2] << 16) | (src[1] << 8) | src[0];
 }

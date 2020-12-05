@@ -120,7 +120,7 @@ static void nem_formatter(const field_t *field, char *dst) {
     if (field->id == NEM_UINT64_LEVY_FEE) {
         snprintf_token(dst, MAX_FIELD_LEN, read_uint64(field->data), 6, "micro");
     } else {
-        snprintf_token(dst, MAX_FIELD_LEN, read_uint64(field->data), 6, "xem");
+        snprintf_token(dst, MAX_FIELD_LEN, read_uint64(field->data), 6, "XEM");
     }
 }
 
