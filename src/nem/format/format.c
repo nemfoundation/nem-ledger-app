@@ -21,6 +21,7 @@
 #include "format.h"
 #include "fields.h"
 #include "readers.h"
+#include "printers.h"
 #include "nem/nem_helpers.h"
 #include "common.h"
 #include "base32.h"

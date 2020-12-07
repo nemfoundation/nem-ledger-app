@@ -17,6 +17,7 @@
 
 #include "nem_parse.h"
 #include "apdu/global.h"
+#include "nem/format/printers.h"
 #include "nem/format/readers.h"
 
 #pragma pack(push, 1)
