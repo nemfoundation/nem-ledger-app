@@ -484,12 +484,8 @@ int parse_multisig_transaction(parse_context_t *context, common_txn_header_t *co
         // get header first
         common_txn_header_t *inner_header = (common_txn_header_t*) read_data(context, sizeof(common_txn_header_t)); // Read data and security check
         BAIL_IF_ERR(inner_header == NULL, E_NOT_ENOUGH_DATA);
-        // Show inner transaction type
-        if (is_inner_tx) {
-            BAIL_IF(add_new_field(context, NEM_UINT32_INNER_TRANSACTION_TYPE, STI_UINT32, sizeof(uint32_t), (const uint8_t *) &inner_header->transactionType));
-        } else {
-            BAIL_IF(add_new_field(context, NEM_UINT32_TRANSACTION_TYPE, STI_UINT32, sizeof(uint32_t), (const uint8_t *) &inner_header->transactionType));
-        }
+        // Show inner transaction / detail transaction type
+        BAIL_IF(add_new_field(context, is_inner_tx ? NEM_UINT32_INNER_TRANSACTION_TYPE : NEM_UINT32_DETAIL_TRANSACTION_TYPE, STI_UINT32, sizeof(uint32_t), (const uint8_t *) &inner_header->transactionType));
         switch (inner_header->transactionType) {
             case NEM_TXN_TRANSFER:
                 BAIL_IF(parse_transfer_transaction(context, inner_header));
