@@ -312,6 +312,7 @@ static int parse_aggregate_modification_transaction(parse_context_t *context, co
 }
 
 static int parse_multisig_signature_transaction(parse_context_t *context, common_txn_header_t *common_header) {
+    BAIL_IF_ERR(!N_nem_pstate.hashSigning, E_DISABLED_HASH_TX);
     multsig_signature_header_t *txn = (multsig_signature_header_t*) read_data(context, sizeof(multsig_signature_header_t)); // Read data and security check
     BAIL_IF_ERR(txn == NULL, E_NOT_ENOUGH_DATA);
     BAIL_IF_ERR(txn->msAddress.length > NEM_ADDRESS_LENGTH, E_INVALID_DATA);

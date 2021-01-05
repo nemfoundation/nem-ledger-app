@@ -26,3 +26,5 @@ void reset_transaction_context() {
     explicit_bzero(&transactionContext, sizeof(transaction_context_t));
     signState = IDLE;
 }
+
+nem_nv_state_t const N_state_pic;

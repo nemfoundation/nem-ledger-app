@@ -70,7 +70,7 @@ int snprintf_token(char* dst, uint32_t len, uint64_t amount, uint8_t divisibilit
         }
     }
     // reverse order
-    for (i -= 1, j = 0; i >= 0 && j < len-1; i--, j++) {
+    for (i -= 1, j = 0; i >= 0 && j < (int) len-1; i--, j++) {
         dst[j] = buffer[i];
     }
     // strip trailing 0s

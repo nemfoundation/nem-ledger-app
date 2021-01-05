@@ -26,6 +26,7 @@ enum _parser_error {
     E_NOT_ENOUGH_DATA = -1,
     E_INVALID_DATA = -2,
     E_TOO_MANY_FIELDS = -3,
+    E_DISABLED_HASH_TX = -4,
 };
 
 int snprintf_hex(char *dst, uint32_t maxLen, const uint8_t *src, uint32_t dataLength, uint8_t reverse);

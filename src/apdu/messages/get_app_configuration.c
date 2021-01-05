@@ -17,12 +17,12 @@
 ********************************************************************************/
 #include "get_app_configuration.h"
 #include <os.h>
-
+#include "global.h"
 /*
 * LEDGER_MAJOR_VERSION, LEDGER_MINOR_VERSION, LEDGER_PATCH_VERSION define in Makefile
 */
 void handle_app_configuration(volatile unsigned int *tx) {
-    G_io_apdu_buffer[0] = 0x00;
+    G_io_apdu_buffer[0] = N_nem_pstate.hashSigning;
     G_io_apdu_buffer[1] = LEDGER_MAJOR_VERSION;
     G_io_apdu_buffer[2] = LEDGER_MINOR_VERSION;
     G_io_apdu_buffer[3] = LEDGER_PATCH_VERSION;
